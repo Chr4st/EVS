@@ -106,7 +106,7 @@ class AcnLoader(SessionLoader):
         return DATASET_NAME
 
     def load_raw(self, source_path: str) -> pl.LazyFrame:
-        """Load ACN JSON file. Expects a JSON array of session objects or newline-delimited JSON."""
+        """Load ACN JSON file. Supports JSON arrays or newline-delimited JSON."""
         with open(source_path) as f:
             content = f.read().strip()
 
