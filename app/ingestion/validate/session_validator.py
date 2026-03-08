@@ -45,12 +45,15 @@ def validate_session(record: dict[str, Any]) -> dict[str, Any]:
     errors.extend(_check_required_timestamp("departure_ts", departure))
 
     # Temporal ordering
-    if isinstance(arrival, datetime) and isinstance(departure, datetime):
-        if departure <= arrival:
-            errors.append({
-                "field": "departure_ts",
-                "error": "departure must be after arrival",
-            })
+    if (
+        isinstance(arrival, datetime)
+        and isinstance(departure, datetime)
+        and departure <= arrival
+    ):
+        errors.append({
+            "field": "departure_ts",
+            "error": "departure must be after arrival",
+        })
 
     # Session duration
     duration = record.get("session_duration_minutes")
