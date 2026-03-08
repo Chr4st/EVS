@@ -3,8 +3,6 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field
 
-from app.utils.time import utc_now
-
 
 class ChargingSessionCreate(BaseModel):
     """Schema for creating a new charging session record."""

@@ -1,6 +1,6 @@
 """Tests for ACN loader normalization."""
 
-from datetime import UTC, datetime
+from datetime import datetime
 from pathlib import Path
 
 from app.ingestion.loaders.acn_loader import AcnLoader, normalize_acn_record

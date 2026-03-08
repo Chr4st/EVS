@@ -1,6 +1,6 @@
 """Tests for time utilities."""
 
-from datetime import UTC, datetime, timezone, timedelta
+from datetime import UTC, datetime, timedelta, timezone
 
 from app.utils.time import ensure_utc, utc_now
 
