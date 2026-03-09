@@ -1,7 +1,6 @@
 """Repository for persisting simulation runs and load timeseries."""
 
 from collections.abc import Sequence
-from datetime import datetime
 
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession

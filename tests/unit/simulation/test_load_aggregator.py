@@ -4,12 +4,12 @@ from datetime import UTC, datetime
 
 import polars as pl
 
-from app.simulation.engine.charging_policy import ChargingDecision
 from app.simulation.aggregation.load_aggregator import (
     compute_fleet_load_curve,
     compute_station_load_curves,
     decisions_to_frame,
 )
+from app.simulation.engine.charging_policy import ChargingDecision
 
 
 def _make_decisions() -> list[ChargingDecision]:

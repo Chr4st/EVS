@@ -5,7 +5,7 @@ and accumulates charging decisions into a complete simulation result.
 """
 
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime  # noqa: TC003 — used at runtime in dataclass fields
 
 import polars as pl
 

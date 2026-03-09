@@ -5,13 +5,12 @@ from datetime import UTC, datetime
 import polars as pl
 
 from app.simulation.engine.baseline_engine import SimulationConfig, run_simulation
-from app.simulation.engine.charging_policy import ImmediateChargePolicy
+from app.simulation.engine.charging_policy import ChargingDecision, ImmediateChargePolicy
 from app.simulation.metrics.baseline_metrics import (
     _compute_completion_rate,
     _compute_energy_per_session,
     compute_metrics,
 )
-from app.simulation.engine.charging_policy import ChargingDecision
 
 
 def _make_sessions() -> pl.DataFrame:
