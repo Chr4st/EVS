@@ -68,9 +68,14 @@ class TestGetActiveSessions:
         assert len(active) == 1
         assert active["session_id"][0] == "s1"
 
-        # At 10:30, s2 and s3 are active (s1 departed by then or at boundary)
+        # At 10:30, all three are active (s1 departs 12:00, s2 departs 17:00, s3 departs 14:00)
         active = get_active_sessions_at(df, datetime(2020, 8, 1, 10, 30, tzinfo=UTC))
-        assert len(active) == 2
+        assert len(active) == 3
+
+        # At 13:00, only s2 is active (s1 departed 12:00, s3 departure > not strict)
+        active = get_active_sessions_at(df, datetime(2020, 8, 1, 14, 30, tzinfo=UTC))
+        assert len(active) == 1
+        assert active["session_id"][0] == "s2"
 
     def test_no_active(self) -> None:
         df = build_session_frame(_make_sessions_df())
